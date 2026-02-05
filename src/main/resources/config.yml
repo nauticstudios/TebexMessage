@@ -1,0 +1,91 @@
+# CUSTOM PLACEHOLDERS
+# These placeholders can be used in messages, titles,
+# buttons and Discord webhooks.
+#
+# Reload with /tebexmessage reload
+# No server restart required
+customs-args:
+  - player
+  - package
+  - price
+
+# PURCHASE BROADCAST
+# Controls the in-game message shown when a purchase is made
+broadcast:
+  message:
+    - "<empty>"
+    - "<center><b><color:#89FF8C>GG IN THE CHAT!</color></b></center>"
+    - "<empty>"
+    - "<center>&f&e{player} &fhas purchased {package}&f!</center>"
+    - "<empty>"
+    - "%buttons%"
+    - "<empty>"
+
+  # Extra visual and sound effects
+  extra:
+    events:
+      # Title shown on purchase
+      # Types: GLOBAL | PLAYER
+      title:
+        enabled: true
+        type: GLOBAL
+        up: '&e{player}'
+        down: '&fPurchased &a{package} &7({price})'
+
+      # Sound played on purchase
+      # Types: GLOBAL | PLAYER
+      sound:
+        enabled: true
+        type: GLOBAL
+        id: ENTITY_PLAYER_LEVELUP
+
+
+# INTERACTIVE BUTTONS
+# Buttons displayed inside the broadcast message
+buttons:
+  # Horizontal button alignment
+  center: 11
+  # Button definitions
+  list:
+    shop:
+      text: "<gradient:#72FF76:#17EA25>[ Click to open Shop ]</gradient>"
+      hover: "<gradient:#72FF76:#17EA25>Click to open website shop</gradient>"
+      open_url: "https://shop.yourserver.com/"
+
+    discord:
+      text: "<gradient:#72C0FF:#1750EA>[ Click to join Discord ]</gradient>"
+      hover: "<gradient:#72C0FF:#1750EA>Click to join Discord server</gradient>"
+      open_url: "https://discord.gg/cdT5g5xsVq"
+
+
+# DISCORD WEBHOOK
+# Sends purchase notifications to Discord
+discord:
+  webhook:
+    enabled: false
+    # Discord webhook URL
+    url: "INSERT-URL-WEBHOOK"
+    # Embed appearance
+    color: "#0088ff"
+    title: "New purchase"
+
+    # Embed description lines
+    description:
+      - "Player **{player}** has purchased a package"
+
+    # Embed fields
+    fields:
+      - name: "Player"
+        value: "{player}"
+        inline: true
+      - name: "Package"
+        value: "{package}"
+        inline: true
+      - name: "Price"
+        value: "{price}"
+        inline: true
+
+    # Embed footer and images
+    footer: "Powered by Nautic Studios  •  shop.yourserver.com"
+    image: "https://i.imgur.com/ip1xV13.png"
+    thumbnail: "https://mc-heads.net/avatar/{player}"

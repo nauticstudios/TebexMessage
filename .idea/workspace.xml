@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c221d7d-bf4b-485f-99e0-9391235ad643" name="Changes" comment="" />
+    <list default="true" id="1c221d7d-bf4b-485f-99e0-9391235ad643" name="Changes" comment="feat(manager): add MessageManager for Tebex messages&#10;&#10;• Introduce MessageManager class&#10;• Handle Tebex message logic&#10;• Initial setup for message handling" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +126,65 @@
       <workItem from="1770268477324" duration="140000" />
       <workItem from="1770268620263" duration="30000" />
       <workItem from="1770268672801" duration="120000" />
+      <workItem from="1770268808934" duration="321000" />
     </task>
+    <task id="LOCAL-00001" summary="feat(project-setup): initialize TebexMessage project&#10;&#10;• Add initial IntelliJ IDEA project configuration files&#10;• Include Maven POM with project dependencies&#10;• Create basic plugin.yml for Spigot plugin structure&#10;&#10;This commit sets up the foundational files required for the TebexMessage project, enabling development to commence. It includes various IDE-specific configuration files (compiler, discord, encodings, jarRepositories, material_theme_project_new, misc, modules, vcs, workspace), the main Maven project object model (pom.xml), and the Spigot plugin descriptor (plugin.yml).">
+      <option name="closed" value="true" />
+      <created>1770268910109</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1770268910109</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat(utils): add addColor utility class&#10;&#10;• Introduce new utility class `addColor.java`&#10;• Provides functionality to manage and apply colors&#10;• Enhances user experience by supporting color customization">
+      <option name="closed" value="true" />
+      <created>1770268951617</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1770268951617</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat(utils): add YamlFile utility class&#10;&#10;• Implement new utility class for YAML file handling&#10;• Provides methods for loading and saving YAML configurations&#10;&#10;Closes #XYZ">
+      <option name="closed" value="true" />
+      <created>1770268960470</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1770268960470</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat(utils): add DefaultFontInfo utility class&#10;&#10;• Introduce new utility class DefaultFontInfo&#10;• Provides information about default font properties for rendering&#10;• Supports retrieving font metrics and character width&#10;&#10;This commit adds a new utility class DefaultFontInfo to the project. This class is designed to provide essential information regarding default font properties, which is crucial for accurate text rendering. It includes methods for retrieving font metrics and calculating individual character widths. This addition improves the project's ability to handle and display text consistently.">
+      <option name="closed" value="true" />
+      <created>1770268967961</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1770268967961</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat(utils): add CenterUtils for message centering&#10;&#10;Add a new utility class, CenterUtils, to facilitate centering messages within a given width.&#10;&#10;• Provides methods for calculating padding and centering strings&#10;• Improves display consistency for in-game messages">
+      <option name="closed" value="true" />
+      <created>1770268976985</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1770268976985</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat(manager): add CustomArgManager&#10;&#10;• Introduce CustomArgManager for custom argument handling&#10;• Simplify argument parsing and management logic&#10;• Enhance extensibility for future argument types">
+      <option name="closed" value="true" />
+      <created>1770268999103</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1770268999103</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat(manager): add MessageManager for Tebex messages&#10;&#10;• Introduce MessageManager class&#10;• Handle Tebex message logic&#10;• Initial setup for message handling">
+      <option name="closed" value="true" />
+      <created>1770269004545</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1770269004545</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,6 +222,14 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+    <MESSAGE value="feat(project-setup): initialize TebexMessage project&#10;&#10;• Add initial IntelliJ IDEA project configuration files&#10;• Include Maven POM with project dependencies&#10;• Create basic plugin.yml for Spigot plugin structure&#10;&#10;This commit sets up the foundational files required for the TebexMessage project, enabling development to commence. It includes various IDE-specific configuration files (compiler, discord, encodings, jarRepositories, material_theme_project_new, misc, modules, vcs, workspace), the main Maven project object model (pom.xml), and the Spigot plugin descriptor (plugin.yml)." />
+    <MESSAGE value="feat(utils): add addColor utility class&#10;&#10;• Introduce new utility class `addColor.java`&#10;• Provides functionality to manage and apply colors&#10;• Enhances user experience by supporting color customization" />
+    <MESSAGE value="feat(utils): add YamlFile utility class&#10;&#10;• Implement new utility class for YAML file handling&#10;• Provides methods for loading and saving YAML configurations&#10;&#10;Closes #XYZ" />
+    <MESSAGE value="feat(utils): add DefaultFontInfo utility class&#10;&#10;• Introduce new utility class DefaultFontInfo&#10;• Provides information about default font properties for rendering&#10;• Supports retrieving font metrics and character width&#10;&#10;This commit adds a new utility class DefaultFontInfo to the project. This class is designed to provide essential information regarding default font properties, which is crucial for" />
+    <MESSAGE value="feat(utils): add CenterUtils for message centering&#10;&#10;Add a new utility class, CenterUtils, to facilitate centering messages within a given width.&#10;&#10;• Provides methods for calculating padding and centering strings&#10;• Improves display consistency for in-game messages" />
+    <MESSAGE value="feat(manager): add CustomArgManager&#10;&#10;• Introduce CustomArgManager for custom argument handling&#10;• Simplify argument parsing and management logic&#10;• Enhance extensibility for future argument types" />
+    <MESSAGE value="feat(manager): add MessageManager for Tebex messages&#10;&#10;• Introduce MessageManager class&#10;• Handle Tebex message logic&#10;• Initial setup for message handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(manager): add MessageManager for Tebex messages&#10;&#10;• Introduce MessageManager class&#10;• Handle Tebex message logic&#10;• Initial setup for message handling" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
 </project>

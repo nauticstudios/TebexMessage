@@ -1,0 +1,11 @@
+#                                                            Developed by Senkex
+#                                                        (Nautic Studios @ (C) 2026)
+
+name: TebexMessage
+version: '${project.version}'
+author: 'Senkex'
+
+api-version: '1.16'
+
+main: com.github.nautic.TebexMessage
+website: "https://github.com/nauticstudios/TebexMessage"

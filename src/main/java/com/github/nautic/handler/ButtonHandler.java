@@ -33,23 +33,29 @@ public class ButtonHandler {
             }
             first = false;
 
-            TextComponent btn = new TextComponent(
-                    addColor.Set(b.getString("text"))
-            );
+            BaseComponent[] text =
+                    TextComponent.fromLegacyText(
+                            addColor.Set(b.getString("text"))
+                    );
 
-            btn.setHoverEvent(new HoverEvent(
-                    HoverEvent.Action.SHOW_TEXT,
-                    new ComponentBuilder(
+            TextComponent button = new TextComponent(text);
+
+            BaseComponent[] hover =
+                    TextComponent.fromLegacyText(
                             addColor.Set(b.getString("hover"))
-                    ).create()
+                    );
+
+            button.setHoverEvent(new HoverEvent(
+                    HoverEvent.Action.SHOW_TEXT,
+                    hover
             ));
 
-            btn.setClickEvent(new ClickEvent(
+            button.setClickEvent(new ClickEvent(
                     ClickEvent.Action.OPEN_URL,
                     b.getString("open_url")
             ));
 
-            line.addExtra(btn);
+            line.addExtra(button);
         }
 
         return line;

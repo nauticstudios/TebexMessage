@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c221d7d-bf4b-485f-99e0-9391235ad643" name="Changes" comment="feat(manager): add MessageManager for Tebex messages&#10;&#10;• Introduce MessageManager class&#10;• Handle Tebex message logic&#10;• Initial setup for message handling" />
+    <list default="true" id="1c221d7d-bf4b-485f-99e0-9391235ad643" name="Changes" comment="chore(config): update IntelliJ IDEA workspace settings&#10;&#10;• Sync workspace.xml with recent project activity&#10;• Record new local tasks and commit messages&#10;• Update internal project state and durations">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/nautic/handler/ButtonHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/nautic/handler/ButtonHandler.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +130,9 @@
       <workItem from="1770268477324" duration="140000" />
       <workItem from="1770268620263" duration="30000" />
       <workItem from="1770268672801" duration="120000" />
-      <workItem from="1770268808934" duration="321000" />
+      <workItem from="1770268808934" duration="476000" />
+      <workItem from="1770297450344" duration="7318000" />
+      <workItem from="1770319734406" duration="4152000" />
     </task>
     <task id="LOCAL-00001" summary="feat(project-setup): initialize TebexMessage project&#10;&#10;• Add initial IntelliJ IDEA project configuration files&#10;• Include Maven POM with project dependencies&#10;• Create basic plugin.yml for Spigot plugin structure&#10;&#10;This commit sets up the foundational files required for the TebexMessage project, enabling development to commence. It includes various IDE-specific configuration files (compiler, discord, encodings, jarRepositories, material_theme_project_new, misc, modules, vcs, workspace), the main Maven project object model (pom.xml), and the Spigot plugin descriptor (plugin.yml).">
       <option name="closed" value="true" />
@@ -184,7 +190,39 @@
       <option name="project" value="LOCAL" />
       <updated>1770269004545</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat(handler): add BroadcastHandler class&#10;&#10;• Implement logic for broadcasting messages&#10;• Handle message events from various sources&#10;• Provide a centralized point for message dissemination">
+      <option name="closed" value="true" />
+      <created>1770269134708</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1770269134708</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat(handler): add BroadcastHandler class&#10;&#10;• Implement logic for broadcasting messages&#10;• Handle message events from various sources&#10;• Provide a centralized point for message dissemination">
+      <option name="closed" value="true" />
+      <created>1770269207998</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1770269207998</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat(handler): add ButtonHandler for interactive messages&#10;&#10;• Introduce new ButtonHandler class&#10;• Enable building interactive BungeeCord TextComponents with buttons&#10;• Support configurable text, hover events, and click events (open_url)&#10;• Allow for button centering and spacing customization">
+      <option name="closed" value="true" />
+      <created>1770269246385</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1770269246385</updated>
+    </task>
+    <task id="LOCAL-00011" summary="chore(config): update IntelliJ IDEA workspace settings&#10;&#10;• Sync workspace.xml with recent project activity&#10;• Record new local tasks and commit messages&#10;• Update internal project state and durations">
+      <option name="closed" value="true" />
+      <created>1770269272738</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1770269272738</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +267,10 @@
     <MESSAGE value="feat(utils): add CenterUtils for message centering&#10;&#10;Add a new utility class, CenterUtils, to facilitate centering messages within a given width.&#10;&#10;• Provides methods for calculating padding and centering strings&#10;• Improves display consistency for in-game messages" />
     <MESSAGE value="feat(manager): add CustomArgManager&#10;&#10;• Introduce CustomArgManager for custom argument handling&#10;• Simplify argument parsing and management logic&#10;• Enhance extensibility for future argument types" />
     <MESSAGE value="feat(manager): add MessageManager for Tebex messages&#10;&#10;• Introduce MessageManager class&#10;• Handle Tebex message logic&#10;• Initial setup for message handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(manager): add MessageManager for Tebex messages&#10;&#10;• Introduce MessageManager class&#10;• Handle Tebex message logic&#10;• Initial setup for message handling" />
+    <MESSAGE value="feat(handler): add BroadcastHandler class&#10;&#10;• Implement logic for broadcasting messages&#10;• Handle message events from various sources&#10;• Provide a centralized point for message dissemination" />
+    <MESSAGE value="feat(handler): add ButtonHandler for interactive messages&#10;&#10;• Introduce new ButtonHandler class&#10;• Enable building interactive BungeeCord TextComponents with buttons&#10;• Support configurable text, hover events, and click events (open_url)&#10;• Allow for button centering and spacing customization" />
+    <MESSAGE value="chore(config): update IntelliJ IDEA workspace settings&#10;&#10;• Sync workspace.xml with recent project activity&#10;• Record new local tasks and commit messages&#10;• Update internal project state and durations" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore(config): update IntelliJ IDEA workspace settings&#10;&#10;• Sync workspace.xml with recent project activity&#10;• Record new local tasks and commit messages&#10;• Update internal project state and durations" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
 </project>

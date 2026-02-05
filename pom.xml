@@ -139,6 +139,16 @@
                                     <pattern>net.kyori</pattern>
                                     <shadedPattern>com.github.nautic.libs.kyori</shadedPattern>
                                 </relocation>
+
+                                <relocation>
+                                    <pattern>org.jetbrains</pattern>
+                                    <shadedPattern>com.github.nautic.libs.jetbrains</shadedPattern>
+                                </relocation>
+
+                                <relocation>
+                                    <pattern>org.intellij</pattern>
+                                    <shadedPattern>com.github.nautic.libs.intellij</shadedPattern>
+                                </relocation>
                             </relocations>
 
                         </configuration>

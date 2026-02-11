@@ -6,7 +6,7 @@
 
     <groupId>com.github.nautic</groupId>
     <artifactId>TebexMessage</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
 
     <name>TebexMessage</name>
@@ -46,7 +46,7 @@
         <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
-            <version>2.11.7</version>
+            <version>2.12.2</version>
             <scope>provided</scope>
         </dependency>
 

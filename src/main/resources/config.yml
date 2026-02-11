@@ -89,3 +89,41 @@ discord:
     footer: "Powered by Nautic Studios  •  shop.yourserver.com"
     image: "https://i.imgur.com/ip1xV13.png"
     thumbnail: "https://mc-heads.net/avatar/{player}"
+
+# MESSAGES CUSTOMIZABLE
+messages:
+  help:
+    - ""
+    - "   &#3BFF48&lTebexMessage &#CDCDCD- &fCommands"
+    - ""
+    - "   &#38FF35/{command} help &#BDBDBD- &#EAEAEAShow help"
+    - "   &#38FF35/{command} reload &#BDBDBD- &#EAEAEAReload configuration"
+    - "   &#38FF35/{command} args &#BDBDBD- &#EAEAEAShow custom arguments"
+    - ""
+
+  args:
+    header:
+      - ""
+      - "   &#3BFF48&lTebexMessage &#CDCDCD- &fConfigured Custom Arguments"
+      - ""
+    empty: "   &cNo custom arguments configured."
+    format: "   &#38FF35- &#EAEAEA{arg}"
+    footer:
+      - ""
+
+  console:
+    usage:
+      - ""
+      - "   &#3BFF48&lTebexMessage &#CDCDCD- &fConsole Usage"
+      - ""
+      - "   &#38FF35/{command} {usage}"
+      - ""
+    invalid-format: "&#3BFF48&lTebexMessage &#CDCDCD» &cInvalid argument format. Use key(value)."
+    unknown-arg: "&#3BFF48&lTebexMessage &#CDCDCD» &cArgument does not exist: &#FF5555{arg}"
+    available-args: "&#3BFF48&lTebexMessage &#CDCDCD» &fArgs available: &#38FF35{args}"
+    missing-parenthesis: "&#3BFF48&lTebexMessage &#CDCDCD» &cMissing '(' or ')' in arguments."
+
+  reload: "&#3BFF48&lTebexMessage &#CDCDCD» &#38FF35Configuration reloaded successfully."
+  no-permission: "&#3BFF48&lTebexMessage &#CDCDCD» &cYou don't have permission."
+  missing-arg: "&#3BFF48&lTebexMessage &#CDCDCD» &cMissing required argument: &#FF5555{arg}"
+  console-only: "&#3BFF48&lTebexMessage &#CDCDCD» &cThis command can only be executed from console."

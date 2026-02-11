@@ -22,38 +22,36 @@ public final class TebexCommandLoader {
             CommandMap commandMap =
                     (CommandMap) commandMapField.get(Bukkit.getServer());
 
-            PluginCommand tbxm = createCommand("tbxm", plugin);
-            if (tbxm != null) {
-                tbxm.setExecutor(new TebexConsoleCommand(plugin));
-                commandMap.register(plugin.getName(), tbxm);
-                plugin.getLogger().info("Registered console command: /tbxm");
-            }
+            TebexConsoleCommand executor = new TebexConsoleCommand(plugin);
+            TebexTabCompleter tabCompleter = new TebexTabCompleter(plugin);
 
-            PluginCommand tebexmessage = createCommand("tebexmessage", plugin);
-            if (tebexmessage != null) {
-                tebexmessage.setExecutor(new TebexConsoleCommand(plugin));
-                commandMap.register(plugin.getName(), tebexmessage);
-                plugin.getLogger().info("Registered console command: /tebexmessage");
-            }
-
-            PluginCommand tbmsg = createCommand("tbmsg", plugin);
-            if (tbmsg != null) {
-                tbmsg.setExecutor(new TebexConsoleCommand(plugin));
-                commandMap.register(plugin.getName(), tbmsg);
-                plugin.getLogger().info("Registered console command: /tbmsg");
-            }
-
-            PluginCommand tb = createCommand("tb", plugin);
-            if (tb != null) {
-                tb.setExecutor(new TebexConsoleCommand(plugin));
-                commandMap.register(plugin.getName(), tb);
-                plugin.getLogger().info("Registered console command: /tb");
-            }
+            registerCommand(plugin, commandMap, "tbxm", executor, tabCompleter);
+            registerCommand(plugin, commandMap, "tebexmessage", executor, tabCompleter);
+            registerCommand(plugin, commandMap, "tbmsg", executor, tabCompleter);
+            registerCommand(plugin, commandMap, "tb", executor, tabCompleter);
 
         } catch (Exception e) {
             plugin.getLogger().severe("Failed to register console commands");
             e.printStackTrace();
         }
+    }
+
+    private static void registerCommand(TebexMessage plugin,
+                                        CommandMap commandMap,
+                                        String name,
+                                        TebexConsoleCommand executor,
+                                        TebexTabCompleter tabCompleter) {
+
+        PluginCommand command = createCommand(name, plugin);
+
+        if (command == null) return;
+
+        command.setExecutor(executor);
+        command.setTabCompleter(tabCompleter);
+
+        commandMap.register(plugin.getName(), command);
+
+        plugin.getLogger().info("Registered command: /" + name);
     }
 
     private static PluginCommand createCommand(String name, TebexMessage plugin) {

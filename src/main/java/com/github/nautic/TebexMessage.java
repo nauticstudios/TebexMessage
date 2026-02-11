@@ -1,6 +1,7 @@
 package com.github.nautic;
 
 import com.github.nautic.command.TebexCommandLoader;
+import com.github.nautic.update.spigot.SpigotUpdateListener;
 import com.github.nautic.utils.YamlFile;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -16,6 +17,7 @@ public class TebexMessage extends JavaPlugin {
 
         int pluginId = 29336;
         new Metrics(this, pluginId);
+        new SpigotUpdateListener(this, 132430);
 
         getLogger().info("[TebexMessage] Plugin enabled successfully.");
     }

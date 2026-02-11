@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c221d7d-bf4b-485f-99e0-9391235ad643" name="Changes" comment="chore(config): update IntelliJ IDEA workspace settings&#10;&#10;• Sync workspace.xml with recent project activity&#10;• Record new local tasks and commit messages&#10;• Update internal project state and durations">
+    <list default="true" id="1c221d7d-bf4b-485f-99e0-9391235ad643" name="Changes" comment="feat(core): introduce initial plugin functionality and config&#10;&#10;• Add TebexMessage.java for core plugin logic&#10;• Implement broadcast, buttons, and Discord webhook features&#10;• Include comprehensive default config.yml for customization">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/nautic/handler/ButtonHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/nautic/handler/ButtonHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/nautic/TebexMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/nautic/TebexMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/nautic/command/TebexCommandLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/nautic/command/TebexCommandLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/nautic/command/TebexConsoleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/nautic/command/TebexConsoleCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,25 +58,26 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven.TebexMessage [clean,package].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.TebexMessage [clean,package].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="TebexMessage [clean,package]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
@@ -109,8 +114,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.240" />
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.29346.240" />
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.30387.90" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.30387.90" />
       </set>
     </attachedChunks>
   </component>
@@ -132,7 +137,8 @@
       <workItem from="1770268672801" duration="120000" />
       <workItem from="1770268808934" duration="476000" />
       <workItem from="1770297450344" duration="7318000" />
-      <workItem from="1770319734406" duration="4152000" />
+      <workItem from="1770319734406" duration="4855000" />
+      <workItem from="1770818305272" duration="8453000" />
     </task>
     <task id="LOCAL-00001" summary="feat(project-setup): initialize TebexMessage project&#10;&#10;• Add initial IntelliJ IDEA project configuration files&#10;• Include Maven POM with project dependencies&#10;• Create basic plugin.yml for Spigot plugin structure&#10;&#10;This commit sets up the foundational files required for the TebexMessage project, enabling development to commence. It includes various IDE-specific configuration files (compiler, discord, encodings, jarRepositories, material_theme_project_new, misc, modules, vcs, workspace), the main Maven project object model (pom.xml), and the Spigot plugin descriptor (plugin.yml).">
       <option name="closed" value="true" />
@@ -222,7 +228,63 @@
       <option name="project" value="LOCAL" />
       <updated>1770269272738</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix(handler): update ButtonHandler to use TextComponent.fromLegacyText&#10;&#10;• Refactor button text and hover text to use TextComponent.fromLegacyText&#10;• Improves handling of legacy color codes in button components&#10;• Ensures proper rendering of formatted text for buttons">
+      <option name="closed" value="true" />
+      <created>1770326749216</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1770326749216</updated>
+    </task>
+    <task id="LOCAL-00013" summary="chore(build): update Maven POM for shading and dependencies&#10;&#10;• Add new relocations for `org.jetbrains` and `org.intellij` libraries&#10;• Update IntelliJ IDEA workspace configuration&#10;• Improve build process by shading additional dependencies">
+      <option name="closed" value="true" />
+      <created>1770326754224</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1770326754224</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat(discord): add Discord webhook utility&#10;&#10;• Introduce DiscordWebhook.java for sending messages&#10;• Enable embedding and custom content in webhooks&#10;• Provide methods for easy integration with Discord API">
+      <option name="closed" value="true" />
+      <created>1770326764488</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1770326764488</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat(command): add TebexCommandLoader&#10;&#10;• Introduce TebexCommandLoader to manage Tebex-related commands&#10;• Implements command registration logic for new Tebex functionality&#10;• Provides an entry point for integrating Tebex commands into the application">
+      <option name="closed" value="true" />
+      <created>1770326769788</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1770326769788</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat(command): add Tebex console command&#10;&#10;• Introduce TebexConsoleCommand.java for server-side interaction&#10;• Provides initial structure for console commands related to Tebex functionality">
+      <option name="closed" value="true" />
+      <created>1770326778016</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1770326778016</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat(config): add initial configuration file&#10;&#10;• Introduce default config.yml for TebexMessage&#10;• Include settings for API keys, messages, and command aliases">
+      <option name="closed" value="true" />
+      <created>1770326802668</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1770326802668</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat(core): introduce initial plugin functionality and config&#10;&#10;• Add TebexMessage.java for core plugin logic&#10;• Implement broadcast, buttons, and Discord webhook features&#10;• Include comprehensive default config.yml for customization">
+      <option name="closed" value="true" />
+      <created>1770326806950</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1770326806950</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,7 +332,14 @@
     <MESSAGE value="feat(handler): add BroadcastHandler class&#10;&#10;• Implement logic for broadcasting messages&#10;• Handle message events from various sources&#10;• Provide a centralized point for message dissemination" />
     <MESSAGE value="feat(handler): add ButtonHandler for interactive messages&#10;&#10;• Introduce new ButtonHandler class&#10;• Enable building interactive BungeeCord TextComponents with buttons&#10;• Support configurable text, hover events, and click events (open_url)&#10;• Allow for button centering and spacing customization" />
     <MESSAGE value="chore(config): update IntelliJ IDEA workspace settings&#10;&#10;• Sync workspace.xml with recent project activity&#10;• Record new local tasks and commit messages&#10;• Update internal project state and durations" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore(config): update IntelliJ IDEA workspace settings&#10;&#10;• Sync workspace.xml with recent project activity&#10;• Record new local tasks and commit messages&#10;• Update internal project state and durations" />
+    <MESSAGE value="fix(handler): update ButtonHandler to use TextComponent.fromLegacyText&#10;&#10;• Refactor button text and hover text to use TextComponent.fromLegacyText&#10;• Improves handling of legacy color codes in button components&#10;• Ensures proper rendering of formatted text for buttons" />
+    <MESSAGE value="chore(build): update Maven POM for shading and dependencies&#10;&#10;• Add new relocations for `org.jetbrains` and `org.intellij` libraries&#10;• Update IntelliJ IDEA workspace configuration&#10;• Improve build process by shading additional dependencies" />
+    <MESSAGE value="feat(discord): add Discord webhook utility&#10;&#10;• Introduce DiscordWebhook.java for sending messages&#10;• Enable embedding and custom content in webhooks&#10;• Provide methods for easy integration with Discord API" />
+    <MESSAGE value="feat(command): add TebexCommandLoader&#10;&#10;• Introduce TebexCommandLoader to manage Tebex-related commands&#10;• Implements command registration logic for new Tebex functionality&#10;• Provides an entry point for integrating Tebex commands into the application" />
+    <MESSAGE value="feat(command): add Tebex console command&#10;&#10;• Introduce TebexConsoleCommand.java for server-side interaction&#10;• Provides initial structure for console commands related to Tebex functionality" />
+    <MESSAGE value="feat(config): add initial configuration file&#10;&#10;• Introduce default config.yml for TebexMessage&#10;• Include settings for API keys, messages, and command aliases" />
+    <MESSAGE value="feat(core): introduce initial plugin functionality and config&#10;&#10;• Add TebexMessage.java for core plugin logic&#10;• Implement broadcast, buttons, and Discord webhook features&#10;• Include comprehensive default config.yml for customization" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(core): introduce initial plugin functionality and config&#10;&#10;• Add TebexMessage.java for core plugin logic&#10;• Implement broadcast, buttons, and Discord webhook features&#10;• Include comprehensive default config.yml for customization" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
 </project>

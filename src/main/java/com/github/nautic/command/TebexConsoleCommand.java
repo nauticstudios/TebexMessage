@@ -4,10 +4,11 @@ import com.github.nautic.TebexMessage;
 import com.github.nautic.discord.DiscordWebhook;
 import com.github.nautic.handler.BroadcastHandler;
 import com.github.nautic.utils.YamlFile;
-import org.bukkit.Bukkit;
+import com.github.nautic.utils.addColor;
 import org.bukkit.command.*;
 
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
 import java.util.regex.*;
 
 public class TebexConsoleCommand implements CommandExecutor {
@@ -24,19 +25,105 @@ public class TebexConsoleCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        if (!(sender instanceof ConsoleCommandSender)) {
+        YamlFile config = plugin.getConfigFile();
+
+        if (args.length == 0) {
+
+            sender.sendMessage("");
+            sender.sendMessage(addColor.Set(
+                    "     &#3BFF48&lTebexMessage &#CDCDCD| &fVersion: &#38FF35"
+            ) + plugin.getDescription().getVersion());
+            sender.sendMessage(addColor.Set(
+                    "         &fPowered by &#3F92FFNautic Studios"
+            ));
+
+            if (sender instanceof ConsoleCommandSender) {
+                String usage = buildUsage(config);
+
+                for (String line : config.getStringList("messages.console.usage")) {
+                    sender.sendMessage(addColor.Set(
+                            line.replace("{command}", label)
+                                    .replace("{usage}", usage)
+                    ));
+                }
+            }
+
+            sender.sendMessage("");
             return true;
         }
 
-        if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
+        if (args[0].equalsIgnoreCase("help")) {
+
+            if (!hasPerm(sender, "tebexmessage.help")) {
+                sendMessage(sender, config.getString("messages.no-permission"));
+                return true;
+            }
+
+            for (String line : config.getStringList("messages.help")) {
+                sender.sendMessage(addColor.Set(
+                        line.replace("{command}", label)
+                ));
+            }
+            return true;
+        }
+
+        if (args[0].equalsIgnoreCase("reload")) {
+
+            if (!hasPerm(sender, "tebexmessage.reload")) {
+                sendMessage(sender, config.getString("messages.no-permission"));
+                return true;
+            }
+
             plugin.reloadAll();
-            sender.sendMessage("[TebexMessage] Reload completed successfully.");
+            sendMessage(sender, config.getString("messages.reload"));
+            return true;
+        }
+
+        if (args[0].equalsIgnoreCase("args")) {
+
+            if (!hasPerm(sender, "tebexmessage.args")) {
+                sendMessage(sender, config.getString("messages.no-permission"));
+                return true;
+            }
+
+            List<String> list = config.getStringList("customs-args");
+
+            for (String line : config.getStringList("messages.args.header")) {
+                sender.sendMessage(addColor.Set(line));
+            }
+
+            if (list.isEmpty()) {
+                sendMessage(sender, config.getString("messages.args.empty"));
+            } else {
+                String format = config.getString("messages.args.format");
+                for (String arg : list) {
+                    sender.sendMessage(addColor.Set(
+                            format.replace("{arg}", arg)
+                    ));
+                }
+            }
+
+            for (String line : config.getStringList("messages.args.footer")) {
+                sender.sendMessage(addColor.Set(line));
+            }
+
+            return true;
+        }
+
+        if (!(sender instanceof ConsoleCommandSender)) {
+            sendMessage(sender, config.getString("messages.console-only"));
             return true;
         }
 
         String joined = String.join(" ", args);
-        Matcher matcher = ARG_PATTERN.matcher(joined);
 
+        if (!joined.contains("(") || !joined.contains(")")) {
+            sendMessage(sender, config.getString("messages.console.missing-parenthesis"));
+            sendAvailableArgs(sender, config);
+            return true;
+        }
+
+        Matcher matcher = ARG_PATTERN.matcher(joined);
         Map<String, String> parsedArgs = new HashMap<>();
 
         while (matcher.find()) {
@@ -46,13 +133,40 @@ public class TebexConsoleCommand implements CommandExecutor {
             );
         }
 
-        YamlFile config = plugin.getConfigFile();
+        if (parsedArgs.isEmpty()) {
+            sendMessage(sender, config.getString("messages.console.invalid-format"));
+            sendAvailableArgs(sender, config);
+            return true;
+        }
+
+        List<String> allowedArgs = config.getStringList("customs-args");
+
+        for (String key : parsedArgs.keySet()) {
+            if (!allowedArgs.contains(key)) {
+                sendMessage(sender,
+                        config.getString("messages.console.unknown-arg")
+                                .replace("{arg}", key)
+                );
+                sendAvailableArgs(sender, config);
+                return true;
+            }
+        }
+
+        for (String required : allowedArgs) {
+            if (!parsedArgs.containsKey(required)) {
+                sendMessage(sender,
+                        config.getString("messages.missing-arg")
+                                .replace("{arg}", required)
+                );
+                sendAvailableArgs(sender, config);
+                return true;
+            }
+        }
 
         new BroadcastHandler(plugin, config)
                 .send(null, parsedArgs);
 
-        Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
-            if (!config.contains("discord.webhook")) return;
+        CompletableFuture.runAsync(() -> {
 
             var section = config.getConfigurationSection("discord.webhook");
             if (section == null || !section.getBoolean("enabled")) return;
@@ -62,8 +176,47 @@ public class TebexConsoleCommand implements CommandExecutor {
 
             new DiscordWebhook(url)
                     .send(section, parsedArgs);
+
         });
 
         return true;
+    }
+
+    private void sendAvailableArgs(CommandSender sender, YamlFile config) {
+
+        List<String> list = config.getStringList("customs-args");
+        if (list.isEmpty()) return;
+
+        String joined = String.join(", ", list);
+
+        sendMessage(sender,
+                config.getString("messages.console.available-args")
+                        .replace("{args}", joined)
+        );
+    }
+
+    private String buildUsage(YamlFile config) {
+
+        List<String> list = config.getStringList("customs-args");
+        if (list.isEmpty()) return "";
+
+        StringBuilder builder = new StringBuilder();
+
+        for (String arg : list) {
+            builder.append(arg).append("(<value>) ");
+        }
+
+        return builder.toString().trim();
+    }
+
+    private void sendMessage(CommandSender sender, String message) {
+        if (message != null && !message.isEmpty()) {
+            sender.sendMessage(addColor.Set(message));
+        }
+    }
+
+    private boolean hasPerm(CommandSender sender, String perm) {
+        return sender.hasPermission("tebexmessage.admin")
+                || sender.hasPermission(perm);
     }
 }
